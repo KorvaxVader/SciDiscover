@@ -1,0 +1,546 @@
+/* SciDiscover Responsive Stylesheet */
+
+/* ------------------------- TABLETS (768px - 991px) ------------------------- */
+@media (max-width: 991px) {
+    /* Main container */
+    .main {
+        padding: var(--space-4) var(--space-3);
+    }
+    
+    /* Headers */
+    .header {
+        padding: var(--space-2) var(--space-4);
+    }
+    
+    .nav {
+        gap: var(--space-3);
+    }
+    
+    .nav-link {
+        font-size: 13px;
+    }
+    
+    /* Dashboard grid - 2 columns instead of 3 */
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .graph-panel {
+        grid-column: span 2;
+    }
+    
+    /* Stats grid */
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Paper cards */
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Connections grid */
+    .connections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Auth page */
+    .index-main-title {
+        font-size: 48px;
+    }
+    
+    .index-logo {
+        width: 140px;
+    }
+    
+    /* About page */
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+/* ------------------------- MOBILE LANDSCAPE (576px - 767px) ------------------------- */
+@media (max-width: 767px) {
+    /* Main container */
+    .main {
+        padding: var(--space-3);
+    }
+    
+    /* Header - stack vertically */
+    .header {
+        flex-direction: column;
+        gap: var(--space-3);
+        padding: var(--space-3);
+    }
+    
+    .logo {
+        justify-content: center;
+    }
+    
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-2);
+    }
+    
+    /* Dashboard grid - 1 column */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .graph-panel {
+        grid-column: span 1;
+    }
+    
+    /* Stats grid - 1 column */
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+    
+    /* Search box */
+    .search-box {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        gap: var(--space-3);
+    }
+    
+    .search-input {
+        width: 100%;
+        background: rgba(3, 5, 20, 0.6);
+        border: 1px solid rgba(127, 255, 212, 0.2);
+        border-radius: 50px;
+        padding: 14px 20px;
+    }
+    
+    .search-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-icon {
+        display: none;
+    }
+    
+    /* Search filters */
+    .search-filters {
+        flex-direction: column;
+        gap: var(--space-3);
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-1);
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+    
+    /* Connections grid - 1 column */
+    .connections-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Paper cards */
+    .paper-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+    
+    .paper-meta {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .paper-link {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Hypothesis page - 1 column */
+    .hypothesis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hypothesis-header {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    
+    .hypothesis-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .hypothesis-actions .btn {
+        width: 100%;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+    
+    .footer-brand {
+        text-align: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .footer-tagline {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-heading {
+        text-align: center;
+    }
+    
+    .footer-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+    }
+    
+    .footer-links {
+        align-items: center;
+    }
+    
+    .footer-contact-item {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-3);
+        text-align: center;
+    }
+    
+    .footer-copyright {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .footer-legal {
+        justify-content: center;
+    }
+    
+    .footer-data-sources {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Auth page */
+    .index-main-title {
+        font-size: 40px;
+    }
+    
+    .index-logo {
+        width: 120px;
+    }
+    
+    .welcome-title {
+        font-size: 24px;
+    }
+    
+    .auth-container {
+        padding: var(--space-4);
+    }
+    
+    .toggle-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .demo-credentials {
+        padding: 12px;
+    }
+    
+    .demo-text {
+        font-size: 12px;
+    }
+    
+    /* Contact page */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--space-2);
+    }
+    
+    .info-icon {
+        margin-bottom: var(--space-1);
+    }
+}
+
+/* ------------------------- MOBILE PORTRAIT (up to 575px) ------------------------- */
+@media (max-width: 575px) {
+    /* Main container */
+    .main {
+        padding: var(--space-2);
+    }
+    
+    /* Headers */
+    .header {
+        padding: var(--space-2);
+    }
+    
+    .logo-text {
+        font-size: 18px;
+    }
+    
+    .logo-image {
+        height: 28px;
+    }
+    
+    .nav-link {
+        font-size: 12px;
+        padding: var(--space-1) var(--space-2);
+    }
+    
+    /* Titles */
+    .welcome-title {
+        font-size: 22px;
+    }
+    
+    .welcome-subtitle {
+        font-size: 14px;
+    }
+    
+    .section-header h2 {
+        font-size: 20px;
+    }
+    
+    /* Paper cards */
+    .paper-card {
+        padding: var(--space-4);
+    }
+    
+    .paper-title {
+        font-size: 16px;
+    }
+    
+    .paper-authors {
+        font-size: 12px;
+    }
+    
+    .paper-abstract {
+        font-size: 13px;
+    }
+    
+    /* Stats cards */
+    .stat-card {
+        padding: var(--space-4);
+    }
+    
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    /* Auth page */
+    .index-main-title {
+        font-size: 32px;
+    }
+    
+    .index-logo {
+        width: 100px;
+    }
+    
+    .welcome-title {
+        font-size: 20px;
+    }
+    
+    .auth-container {
+        padding: var(--space-3);
+    }
+    
+    .form-input {
+        padding: 12px;
+    }
+    
+    .auth-submit {
+        padding: 14px;
+    }
+    
+    .demo-credentials {
+        padding: 10px;
+    }
+    
+    .demo-text {
+        font-size: 11px;
+        word-break: break-all;
+    }
+    
+    /* About page */
+    .about-title {
+        font-size: 32px;
+    }
+    
+    .mission-statement {
+        font-size: 15px;
+    }
+    
+    .story-content p {
+        font-size: 14px;
+    }
+    
+    .tech-card {
+        padding: var(--space-4);
+    }
+    
+    .tech-card h3 {
+        font-size: 16px;
+    }
+    
+    .tech-card p {
+        font-size: 12px;
+    }
+    
+    /* Contact page */
+    .contact-title {
+        font-size: 32px;
+    }
+    
+    .contact-subtitle {
+        font-size: 15px;
+    }
+    
+    .contact-form-card h2,
+    .contact-info-card h2 {
+        font-size: 20px;
+    }
+    
+    .response-note {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Hypothesis page */
+    .hypothesis-title {
+        font-size: 24px;
+    }
+    
+    .hypothesis-badge {
+        font-size: 12px;
+    }
+    
+    .detail-card {
+        padding: var(--space-4);
+    }
+    
+    .detail-card h2 {
+        font-size: 18px;
+    }
+    
+    .paper-item {
+        flex-direction: column;
+    }
+    
+    .paper-rank {
+        align-self: flex-start;
+        margin-bottom: var(--space-2);
+    }
+    
+    /* Footer */
+    .footer {
+        padding: var(--space-5) var(--space-3) var(--space-3);
+    }
+    
+    .footer-logo-text {
+        font-size: 18px;
+    }
+    
+    .footer-tagline {
+        font-size: 12px;
+    }
+    
+    .footer-heading {
+        font-size: 13px;
+    }
+    
+    .footer-link {
+        font-size: 12px;
+    }
+    
+    .footer-contact-item {
+        font-size: 12px;
+    }
+    
+    .footer-copyright {
+        font-size: 11px;
+    }
+    
+    .legal-link {
+        font-size: 11px;
+    }
+    
+    .footer-data-sources span {
+        font-size: 11px;
+    }
+}
+
+/* ------------------------- SMALL MOBILE (up to 375px) ------------------------- */
+@media (max-width: 375px) {
+    .logo-text {
+        font-size: 16px;
+    }
+    
+    .logo-image {
+        height: 24px;
+    }
+    
+    .nav-link {
+        font-size: 11px;
+    }
+    
+    .welcome-title {
+        font-size: 20px;
+    }
+    
+    .btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: 13px;
+    }
+    
+    .btn-large {
+        padding: var(--space-2) var(--space-5);
+        font-size: 14px;
+    }
+    
+    .stat-value {
+        font-size: 20px;
+    }
+    
+    .auth-toggle .toggle-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+}

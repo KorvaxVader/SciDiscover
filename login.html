@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SciDiscover</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Simple Header -->
+        <header class="header-simple">
+            <span class="header-cyan-title">SciDiscover</span>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="login-container">
+                <!-- Floating Logo -->
+                <div class="login-logo-wrapper">
+                    <img src="../assets/images/logo.png" alt="SciDiscover" class="login-logo">
+                </div>
+                
+                <!-- Welcome Text -->
+                <h2 class="login-welcome">Welcome back, <span class="researcher-gradient">Researcher</span>!</h2>
+                
+                <p class="login-subtitle">
+                    Discover hidden connections across neuroscience, AI, medicine, and physics
+                </p>
+                
+                <p class="login-domain">
+                    AI-powered cross-domain discovery across arXiv, PubMed, and Semantic Scholar
+                </p>
+                
+                <!-- Auth Container with Slider -->
+                <div class="auth-container">
+                    <!-- Toggle Buttons -->
+                    <div class="auth-toggle">
+                        <button class="toggle-btn active" id="loginToggle">Log In</button>
+                        <button class="toggle-btn" id="signupToggle">Sign Up</button>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <div class="auth-form active" id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input 
+                                type="email" 
+                                id="loginEmail" 
+                                class="form-input" 
+                                placeholder="user123@gmail.com"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input 
+                                type="password" 
+                                id="loginPassword" 
+                                class="form-input" 
+                                placeholder="••••••••"
+                            >
+                        </div>
+                        
+                        <div class="demo-credentials">
+                            <span class="demo-label">DEMO:</span>
+                            <span class="demo-text">user123@gmail.com / user@123</span>
+                        </div>
+                        
+                        <button class="auth-submit" id="loginBtn">LOG IN</button>
+                    </div>
+                    
+                    <!-- Signup Form -->
+                    <div class="auth-form" id="signupForm">
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input 
+                                type="email" 
+                                id="signupEmail" 
+                                class="form-input" 
+                                placeholder="your@email.com"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input 
+                                type="password" 
+                                id="signupPassword" 
+                                class="form-input" 
+                                placeholder="Create password"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupConfirm">Confirm Password</label>
+                            <input 
+                                type="password" 
+                                id="signupConfirm" 
+                                class="form-input" 
+                                placeholder="Confirm password"
+                            >
+                        </div>
+                        
+                        <button class="auth-submit" id="signupBtn">SIGN UP</button>
+                    </div>
+                </div>
+                
+                <!-- Demo Note -->
+                <p class="demo-note">
+                    MVP Demo: Use any email/password for signup · user123@gmail.com/user@123 for login
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- Brand Section -->
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="../assets/images/logo.png" alt="SciDiscover" class="footer-logo-image">
+                            <span class="footer-logo-text">SciDiscover</span>
+                        </div>
+                        <p class="footer-tagline">AI-powered research discovery connecting the unconnected across neuroscience, AI, medicine, and physics.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Explore</h4>
+                        <div class="footer-links">
+                            <a href="../dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a>
+                            <a href="../hypothesis.html" class="footer-link"><i class="fas fa-chevron-right"></i> Hypotheses</a>
+                            <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                            <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Resources</h4>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Documentation</a>
+                            <a href="#" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> API</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div class="footer-contact-section">
+                        <h4 class="footer-heading">Get in Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span class="contact-text"><a href="mailto:team@scidiscover.tech">team@scidiscover.tech</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span class="contact-text">DY Patil University<br>Talegaon Ambi, Pune</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Bar -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <span><i class="far fa-copyright copyright-symbol"></i> 2026 Divine Achiever</span>
+                        <span class="source-dot">•</span>
+                        <span>MIT License</span>
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Privacy</a>
+                        <span class="source-dot">•</span>
+                        <a href="#" class="legal-link">Terms</a>
+                    </div>
+                    <div class="footer-data-sources">
+                        <span><i class="fas fa-book-open"></i> arXiv</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-flask"></i> PubMed</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-graduation-cap"></i> Semantic Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../config/constants.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

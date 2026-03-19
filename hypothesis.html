@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypothesis | SciDiscover</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/hypothesis.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="SciDiscover" class="logo-image">
+                <span class="logo-text">SciDiscover</span>
+            </div>
+            
+            <nav class="nav">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="hypothesis.html" class="nav-link active">Hypotheses</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="dashboard.html">Dashboard</a>
+                <i class="fas fa-chevron-right breadcrumb-sep"></i>
+                <a href="hypothesis.html">Hypotheses</a>
+                <i class="fas fa-chevron-right breadcrumb-sep"></i>
+                <span class="current">Hypothesis Details</span>
+            </div>
+
+            <!-- Hypothesis Container -->
+            <div class="hypothesis-container" id="hypothesisContainer">
+                <!-- Content will be populated by API -->
+                <div class="loading-hypothesis">Loading hypothesis...</div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- Brand Section -->
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="../assets/images/logo.png" alt="SciDiscover" class="footer-logo-image">
+                            <span class="footer-logo-text">SciDiscover</span>
+                        </div>
+                        <p class="footer-tagline">AI-powered research discovery connecting the unconnected across neuroscience, AI, medicine, and physics.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Explore Section -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Explore</h4>
+                        <div class="footer-links">
+                            <a href="dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a>
+                            <a href="hypothesis.html" class="footer-link"><i class="fas fa-chevron-right"></i> Hypotheses</a>
+                            <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                            <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Section -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Resources</h4>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Documentation</a>
+                            <a href="#" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> API</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Section -->
+                    <div class="footer-contact-section">
+                        <h4 class="footer-heading">Get in Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span class="contact-text"><a href="mailto:team@scidiscover.tech">team@scidiscover.tech</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span class="contact-text">DY Patil University<br>Talegaon Ambi, Pune</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Bar -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <span><i class="far fa-copyright copyright-symbol"></i> 2026 Divine Achiever</span>
+                        <span class="source-dot">•</span>
+                        <span>MIT License</span>
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Privacy</a>
+                        <span class="source-dot">•</span>
+                        <a href="#" class="legal-link">Terms</a>
+                    </div>
+                    <div class="footer-data-sources">
+                        <span><i class="fas fa-book-open"></i> arXiv</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-flask"></i> PubMed</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-graduation-cap"></i> Semantic Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../config/constants.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script>
+        // Logout handler
+        document.getElementById('logoutBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            logout();
+        });
+
+        // Get hypothesis ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const hypothesisId = urlParams.get('id') || 'default'; // If no ID, load default/random
+
+        // Load hypothesis on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHypothesis(hypothesisId);
+        });
+
+        // Load hypothesis details
+        function loadHypothesis(id) {
+            const container = document.getElementById('hypothesisContainer');
+            
+            API.getHypothesis(id)
+                .then(hypothesis => {
+                    displayHypothesis(hypothesis);
+                })
+                .catch(error => {
+                    console.error('Failed to load hypothesis:', error);
+                    container.innerHTML = `
+                        <div class="error-container">
+                            <i class="fas fa-exclamation-triangle error-icon"></i>
+                            <p class="error-message">Failed to load hypothesis. Please try again.</p>
+                            <button onclick="loadHypothesis('${id}')" class="btn btn-primary">
+                                <i class="fas fa-sync-alt"></i> Retry
+                            </button>
+                        </div>
+                    `;
+                });
+        }
+
+        // Display hypothesis details
+        function displayHypothesis(h) {
+            const container = document.getElementById('hypothesisContainer');
+            
+            const html = `
+                <!-- Hypothesis Header -->
+                <div class="hypothesis-header">
+                    <div class="hypothesis-title-section">
+                        <span class="hypothesis-badge">
+                            <i class="fas fa-robot"></i> AI Generated · ${new Date(h.generated_date).toLocaleDateString()}
+                        </span>
+                        <h1 class="hypothesis-title">${h.title}</h1>
+                        
+                        <div class="hypothesis-quick-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Confidence</span>
+                                <span class="stat-value confidence-${getConfidenceClass(h.confidence)}">${h.confidence}%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Supporting Papers</span>
+                                <span class="stat-value">${h.supporting_papers?.length || 0}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Fields</span>
+                                <div class="field-tags">
+                                    ${h.fields?.map(field => 
+                                        `<span class="field-tag ${field.toLowerCase()}">${field}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hypothesis-actions">
+                        <button class="btn btn-secondary" onclick="shareHypothesis('${h.id}')">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                        <button class="btn btn-primary" onclick="saveHypothesis('${h.id}')">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="hypothesis-grid">
+                    <!-- Left Column - Main Content -->
+                    <div class="hypothesis-left">
+                        <!-- Full Hypothesis Card -->
+                        <div class="detail-card">
+                            <h2><i class="fas fa-lightbulb card-icon"></i> Hypothesis</h2>
+                            <p class="hypothesis-full-text">${h.statement}</p>
+                            
+                            ${h.key_points ? `
+                            <div class="key-points">
+                                <h3>Key Points:</h3>
+                                <ul>
+                                    ${h.key_points.map(point => `<li>${point}</li>`).join('')}
+                                </ul>
+                            </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- Experiment Design Card -->
+                        <div class="detail-card experiment-card">
+                            <h2><i class="fas fa-flask card-icon"></i> Suggested Experiment</h2>
+                            
+                            ${h.experiment ? `
+                                <div class="experiment-content">
+                                    <p class="experiment-description">${h.experiment.description}</p>
+                                    
+                                    <div class="experiment-details">
+                                        <div class="detail-group">
+                                            <h3><i class="fas fa-bullseye"></i> Objective</h3>
+                                            <p>${h.experiment.objective}</p>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <h3><i class="fas fa-list-ol"></i> Methodology</h3>
+                                            <ol class="methodology-list">
+                                                ${h.experiment.methodology?.map(step => 
+                                                    `<li>${step}</li>`
+                                                ).join('')}
+                                            </ol>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <h3><i class="fas fa-chart-line"></i> Expected Outcome</h3>
+                                            <p>${h.experiment.expected_outcome}</p>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <h3><i class="fas fa-microchip"></i> Resources</h3>
+                                            <p>${h.experiment.resources}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : '<p class="no-experiment">No experiment suggested yet.</p>'}
+                            
+                            <button class="btn btn-secondary btn-block" onclick="generateExperiment('${h.id}')">
+                                <i class="fas fa-sync-alt"></i> Regenerate Experiment
+                            </button>
+                        </div>
+                        
+                        <!-- Researcher Notes Card -->
+                        <div class="detail-card notes-card">
+                            <h2><i class="fas fa-pen card-icon"></i> Your Notes</h2>
+                            <textarea id="hypothesisNotes" class="notes-textarea" 
+                                placeholder="Add your notes about this hypothesis...">${localStorage.getItem(`notes_${h.id}`) || ''}</textarea>
+                            <button class="btn btn-text" onclick="saveNotes('${h.id}')">
+                                <i class="fas fa-save"></i> Save Notes
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Supporting Evidence -->
+                    <div class="hypothesis-right">
+                        <!-- Supporting Papers Card -->
+                        <div class="detail-card">
+                            <h2><i class="fas fa-file-alt card-icon"></i> Supporting Papers (${h.supporting_papers?.length || 0})</h2>
+                            
+                            <div class="papers-list">
+                                ${h.supporting_papers?.map((paper, index) => `
+                                    <div class="paper-item">
+                                        <div class="paper-rank">#${index + 1}</div>
+                                        <div class="paper-content">
+                                            <h4>${paper.title}</h4>
+                                            <p class="paper-authors">${paper.authors} · ${paper.journal} · ${paper.year}</p>
+                                            <p class="paper-abstract">${paper.abstract.substring(0, 120)}...</p>
+                                            <div class="paper-meta">
+                                                <span class="match-score">
+                                                    <i class="fas fa-chart-line"></i> ${paper.relevance}% match
+                                                </span>
+                                                <a href="${paper.url}" class="paper-link" target="_blank">
+                                                    Read Paper <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            ${(h.supporting_papers?.length || 0) > 3 ? `
+                                <button class="btn btn-text btn-block" onclick="loadMorePapers('${h.id}')">
+                                    View All ${h.supporting_papers.length} Papers <i class="fas fa-arrow-right"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+
+                        <!-- Related Connections Card -->
+                        <div class="detail-card">
+                            <h2><i class="fas fa-project-diagram card-icon"></i> Related Connections</h2>
+                            
+                            <div class="connections-list">
+                                ${h.related_connections?.map(conn => `
+                                    <div class="connection-item">
+                                        <div class="connection-fields">
+                                            <span class="field-tag ${conn.field1.toLowerCase()}">${conn.field1}</span>
+                                            <i class="fas fa-arrow-right connection-arrow"></i>
+                                            <span class="field-tag ${conn.field2.toLowerCase()}">${conn.field2}</span>
+                                        </div>
+                                        <p class="connection-description">${conn.description}</p>
+                                        <div class="connection-strength">
+                                            <span class="strength-label">Strength:</span>
+                                            <div class="strength-bar">
+                                                <div class="strength-fill" style="width: ${conn.strength}%"></div>
+                                            </div>
+                                            <span class="strength-value">${conn.strength}%</span>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Similar Hypotheses Card -->
+                        <div class="detail-card">
+                            <h2><i class="fas fa-lightbulb card-icon"></i> Similar Hypotheses</h2>
+                            
+                            <div class="similar-list">
+                                ${h.similar_hypotheses?.map(similar => `
+                                    <a href="hypothesis.html?id=${similar.id}" class="similar-item">
+                                        <p>${similar.title}</p>
+                                        <span class="similar-confidence">${similar.confidence}%</span>
+                                    </a>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+
+        // Helper function for confidence class
+        function getConfidenceClass(confidence) {
+            if (confidence >= 80) return 'high';
+            if (confidence >= 60) return 'medium';
+            return 'low';
+        }
+
+        // Save hypothesis
+        function saveHypothesis(id) {
+            API.saveHypothesis(id)
+                .then(() => {
+                    alert('Hypothesis saved to your library!');
+                })
+                .catch(error => {
+                    console.error('Failed to save:', error);
+                    alert('Failed to save hypothesis');
+                });
+        }
+
+        // Share hypothesis
+        function shareHypothesis(id) {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link copied to clipboard!');
+                })
+                .catch(() => {
+                    alert('Failed to copy link');
+                });
+        }
+
+        // Generate experiment
+        function generateExperiment(id) {
+            API.generateExperiment(id)
+                .then(experiment => {
+                    // Reload hypothesis to show new experiment
+                    loadHypothesis(id);
+                })
+                .catch(error => {
+                    console.error('Failed to generate experiment:', error);
+                    alert('Failed to generate experiment');
+                });
+        }
+
+        // Save notes
+        function saveNotes(id) {
+            const notes = document.getElementById('hypothesisNotes').value;
+            localStorage.setItem(`notes_${id}`, notes);
+            alert('Notes saved!');
+        }
+
+        // Load more papers
+        function loadMorePapers(id) {
+            window.location.href = `search-results.html?hypothesis=${id}`;
+        }
+    </script>
+</body>
+</html>

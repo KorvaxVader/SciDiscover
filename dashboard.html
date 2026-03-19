@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SciDiscover</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!--CSS Files-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="SciDiscover" class="logo-image">
+                <span class="logo-text">SciDiscover</span>
+            </div>
+            
+            <nav class="nav">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="hypothesis.html" class="nav-link">Hypotheses</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome back, <span id="userName">Researcher</span>!</h1>
+                <p class="welcome-subtitle">Discover hidden connections across neuroscience, AI, medicine, and physics</p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput"
+                            class="search-input" 
+                            placeholder="Enter research topic or question..."
+                        >
+                        <button id="searchBtn" class="search-button">
+                            Search <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="search-filters">
+                        <div class="filter-group">
+                            <label for="sourceSelect">Source:</label>
+                            <select id="sourceSelect" class="filter-select">
+                                <option value="all">All Sources</option>
+                                <option value="arxiv">arXiv</option>
+                                <option value="pubmed">PubMed</option>
+                                <option value="semantic">Semantic Scholar</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="limitSelect">Results:</label>
+                            <select id="limitSelect" class="filter-select">
+                                <option value="10">10 papers</option>
+                                <option value="25">25 papers</option>
+                                <option value="50">50 papers</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats - Will be populated by API -->
+            <div class="dashboard-stats" id="statsContainer">
+                <!-- Stats will be loaded via API -->
+                <div class="loading-stats">Loading statistics...</div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2>Recent Discoveries</h2>
+                    <a href="#" class="view-all" id="viewAllLink">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="results-grid" id="papersContainer">
+                    <!-- Papers will be populated by API -->
+                    <div class="loading-papers">Loading papers...</div>
+                </div>
+            </div>
+
+            <!-- Connections Section -->
+            <div class="connections-section" id="connectionsSection">
+                <div class="section-header">
+                    <h2>Cross-Domain Connections</h2>
+                    <a href="#" class="view-all" id="viewGraphLink">View Graph <i class="fas fa-project-diagram"></i></a>
+                </div>
+                
+                <div class="connections-grid" id="connectionsContainer">
+                    <!-- Connections will be populated by API -->
+                    <div class="loading-connections">Loading connections...</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer - Styles come from auth.css -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- Brand Section -->
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="../assets/images/logo.png" alt="SciDiscover" class="footer-logo-image">
+                            <span class="footer-logo-text">SciDiscover</span>
+                        </div>
+                        <p class="footer-tagline">AI-powered research discovery connecting the unconnected across neuroscience, AI, medicine, and physics.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Explore Section -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Explore</h4>
+                        <div class="footer-links">
+                            <a href="dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a>
+                            <a href="hypothesis.html" class="footer-link"><i class="fas fa-chevron-right"></i> Hypotheses</a>
+                            <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                            <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Section -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Resources</h4>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Documentation</a>
+                            <a href="#" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> API</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Section -->
+                    <div class="footer-contact-section">
+                        <h4 class="footer-heading">Get in Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span class="contact-text"><a href="mailto:team@scidiscover.tech">team@scidiscover.tech</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span class="contact-text">DY Patil University<br>Talegaon Ambi, Pune</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Bar -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <span><i class="far fa-copyright copyright-symbol"></i> 2026 Divine Achiever</span>
+                        <span class="source-dot">•</span>
+                        <span>MIT License</span>
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Privacy</a>
+                        <span class="source-dot">•</span>
+                        <a href="#" class="legal-link">Terms</a>
+                    </div>
+                    <div class="footer-data-sources">
+                        <span><i class="fas fa-book-open"></i> arXiv</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-flask"></i> PubMed</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-graduation-cap"></i> Semantic Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../config/constants.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/graph.js"></script>
+    <script src="../js/app.js"></script>
+    
+    <script>
+        // Logout handler
+        document.getElementById('logoutBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            logout();
+        });
+
+        // Load user name
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.name) {
+                document.getElementById('userName').textContent = user.name;
+            }
+            
+            // Load dashboard data
+            loadDashboardData();
+        });
+
+        // Search handler
+        document.getElementById('searchBtn')?.addEventListener('click', function() {
+            const query = document.getElementById('searchInput').value.trim();
+            const source = document.getElementById('sourceSelect').value;
+            const limit = document.getElementById('limitSelect').value;
+            
+            if (!query) {
+                alert('Please enter a search query');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('papersContainer').innerHTML = '<div class="loading-papers">Searching papers...</div>';
+            
+            // Call API
+            API.searchPapers(query, source, limit)
+                .then(results => {
+                    displayResults(results);
+                })
+                .catch(error => {
+                    console.error('Search failed:', error);
+                    document.getElementById('papersContainer').innerHTML = '<div class="error">Search failed. Please try again.</div>';
+                });
+        });
+
+        // Load dashboard data
+        function loadDashboardData() {
+            // Load stats
+            API.getStats()
+                .then(stats => {
+                    displayStats(stats);
+                })
+                .catch(error => {
+                    console.error('Failed to load stats:', error);
+                    document.getElementById('statsContainer').innerHTML = '<div class="error">Failed to load stats</div>';
+                });
+            
+            // Load recent papers
+            API.getRecentPapers(4)
+                .then(papers => {
+                    displayResults(papers);
+                })
+                .catch(error => {
+                    console.error('Failed to load recent papers:', error);
+                    document.getElementById('papersContainer').innerHTML = '<div class="error">Failed to load papers</div>';
+                });
+            
+            // Load recent connections
+            API.getRecentConnections(3)
+                .then(connections => {
+                    displayConnections(connections);
+                })
+                .catch(error => {
+                    console.error('Failed to load connections:', error);
+                    document.getElementById('connectionsContainer').innerHTML = '<div class="error">Failed to load connections</div>';
+                });
+        }
+
+        // Display stats
+        function displayStats(stats) {
+            const container = document.getElementById('statsContainer');
+            
+            if (!stats) {
+                container.innerHTML = '<div class="error">No stats available</div>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-value">${stats.papers?.toLocaleString() || '0'}</span>
+                        <span class="stat-label">Papers Indexed</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-value">${stats.connections?.toLocaleString() || '0'}</span>
+                        <span class="stat-label">Connections</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="stat-content">
+                        <span class="stat-value">${stats.hypotheses?.toLocaleString() || '0'}</span>
+                        <span class="stat-label">Hypotheses</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Display results from API
+        function displayResults(papers) {
+            const container = document.getElementById('papersContainer');
+            
+            if (!papers || papers.length === 0) {
+                container.innerHTML = '<p class="no-results">No papers found</p>';
+                return;
+            }
+            
+            let html = '';
+            
+            papers.forEach(paper => {
+                const fieldClass = paper.field ? paper.field.toLowerCase() : 'general';
+                
+                html += `
+                    <div class="paper-card">
+                        <div class="paper-badge ${fieldClass}">${paper.field || 'Research'}</div>
+                        <h3 class="paper-title">${paper.title}</h3>
+                        <p class="paper-authors">${paper.authors || 'Unknown'} · ${paper.journal || 'Preprint'} · ${paper.year || 'N/A'}</p>
+                        <p class="paper-abstract">${paper.abstract ? paper.abstract.substring(0, 150) + '...' : 'No abstract available'}</p>
+                        <div class="paper-footer">
+                            <div class="paper-meta">
+                                <span class="relevance"><i class="fas fa-chart-line"></i> ${paper.relevance || '0'}% match</span>
+                                <span class="citations"><i class="fas fa-quote-right"></i> ${paper.citations?.toLocaleString() || '0'} citations</span>
+                            </div>
+                            <a href="${paper.url || '#'}" class="paper-link" target="_blank">Read Paper <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Display connections
+        function displayConnections(connections) {
+            const container = document.getElementById('connectionsContainer');
+            
+            if (!connections || connections.length === 0) {
+                container.innerHTML = '<p class="no-results">No connections found</p>';
+                return;
+            }
+            
+            let html = '';
+            
+            connections.forEach(conn => {
+                html += `
+                    <div class="connection-card">
+                        <div class="connection-fields">
+                            <span class="field-tag ${conn.field1.toLowerCase()}">${conn.field1}</span>
+                            <i class="fas fa-arrow-right connection-arrow"></i>
+                            <span class="field-tag ${conn.field2.toLowerCase()}">${conn.field2}</span>
+                        </div>
+                        <h4>${conn.title}</h4>
+                        <p class="connection-desc">${conn.description}</p>
+                        <div class="connection-strength">
+                            <span class="strength-label">Connection strength:</span>
+                            <div class="strength-bar">
+                                <div class="strength-fill" style="width: ${conn.strength}%"></div>
+                            </div>
+                            <span class="strength-value">${conn.strength}%</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

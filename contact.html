@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SciDiscover</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="SciDiscover" class="logo-image">
+                <span class="logo-text">SciDiscover</span>
+            </div>
+            
+            <nav class="nav">
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../hypothesis.html" class="nav-link">Hypotheses</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Contact Header -->
+            <div class="contact-header">
+                <h1 class="contact-title">
+                    <span class="gradient-text">Get In</span> Touch
+                </h1>
+                
+                <p class="contact-subtitle">
+                    Have questions, feedback, or want to collaborate? We'd love to hear from you.
+                </p>
+            </div>
+
+            <!-- Contact Grid -->
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-card">
+                    <h2><i class="fas fa-paper-plane"></i> Send us a message</h2>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Send message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-card">
+                    <h2><i class="fas fa-address-card"></i> Contact information</h2>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fas fa-envelope info-icon"></i>
+                            <div class="info-content">
+                                <h3>Email</h3>
+                                <a href="mailto:team@scidiscover.tech">team@scidiscover.tech</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt info-icon"></i>
+                            <div class="info-content">
+                                <h3>Location</h3>
+                                <p>DY Patil University</p>
+                                <p>Talegaon Ambi, Pune</p>
+                                <p>Maharashtra, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fab fa-github info-icon"></i>
+                            <div class="info-content">
+                                <h3>GitHub</h3>
+                                <a href="#">github.com/divine-achiever/scidiscover</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fab fa-twitter info-icon"></i>
+                            <div class="info-content">
+                                <h3>Twitter</h3>
+                                <a href="#">@scidiscover</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Response Time Note -->
+                    <div class="response-note">
+                        <i class="fas fa-clock"></i>
+                        <p>We'll get back to you within 48 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- Brand Section -->
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="../assets/images/logo.png" alt="SciDiscover" class="footer-logo-image">
+                            <span class="footer-logo-text">SciDiscover</span>
+                        </div>
+                        <p class="footer-tagline">AI-powered research discovery connecting the unconnected across neuroscience, AI, medicine, and physics.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Explore Section -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Explore</h4>
+                        <div class="footer-links">
+                            <a href="../dashboard.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dashboard</a>
+                            <a href="../hypothesis.html" class="footer-link"><i class="fas fa-chevron-right"></i> Hypotheses</a>
+                            <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                            <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Section -->
+                    <div class="footer-links-section">
+                        <h4 class="footer-heading">Resources</h4>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Documentation</a>
+                            <a href="#" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> API</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Section -->
+                    <div class="footer-contact-section">
+                        <h4 class="footer-heading">Get in Touch</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span class="contact-text"><a href="mailto:team@scidiscover.tech">team@scidiscover.tech</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span class="contact-text">DY Patil University<br>Talegaon Ambi, Pune</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Bar -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <span><i class="far fa-copyright copyright-symbol"></i> 2026 Divine Achiever</span>
+                        <span class="source-dot">•</span>
+                        <span>MIT License</span>
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Privacy</a>
+                        <span class="source-dot">•</span>
+                        <a href="#" class="legal-link">Terms</a>
+                    </div>
+                    <div class="footer-data-sources">
+                        <span><i class="fas fa-book-open"></i> arXiv</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-flask"></i> PubMed</span>
+                        <span class="source-dot">•</span>
+                        <span><i class="fas fa-graduation-cap"></i> Semantic Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../config/constants.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script>
+        // Logout handler
+        document.getElementById('logoutBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            logout();
+        });
+
+        // Contact form handler
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Send to backend
+            API.sendContact(formData)
+                .then(() => {
+                    alert('Message sent successfully! We\'ll get back to you within 48 hours.');
+                    this.reset();
+                })
+                .catch(() => {
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>

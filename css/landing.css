@@ -1,0 +1,122 @@
+/* Landing Page Specific Styles - Separate */
+
+.landing-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-title {
+    font-size: 80px;
+    font-weight: 800;
+    margin-bottom: var(--space-5);
+    font-family: var(--font-display);
+    letter-spacing: -1px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #FFFFFF, #A7D8B5, #7FFFD4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.landing-logo-wrapper {
+    margin: var(--space-4) 0 var-space-6 0;
+}
+
+.landing-logo {
+    width: 180px;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(127, 255, 212, 0.4));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.landing-description {
+    color: var(--gray-300);
+    font-size: 20px;
+    max-width: 600px;
+    margin: var(--space-4) auto var-space-8 auto;
+    line-height: 1.6;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.landing-button-wrapper {
+    margin-top: var(--space-6);
+}
+
+.btn-large {
+    padding: 16px 56px;
+    font-size: 18px;
+    border-radius: 40px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 25px rgba(42, 111, 143, 0.5);
+}
+
+.btn-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(58, 155, 94, 0.6);
+}
+
+.footer-simple {
+    text-align: center;
+    padding: var(--space-4);
+    color: var(--gray-500);
+    font-size: 13px;
+    background: rgba(3, 5, 20, 0.3);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(127, 255, 212, 0.1);
+}
+
+@media (max-width: 768px) {
+    .landing-title {
+        font-size: 56px;
+    }
+    
+    .landing-logo {
+        width: 140px;
+    }
+    
+    .landing-description {
+        font-size: 18px;
+        padding: 0 var(--space-4);
+    }
+    
+    .btn-large {
+        padding: 14px 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-title {
+        font-size: 42px;
+    }
+    
+    .landing-logo {
+        width: 120px;
+    }
+    
+    .landing-description {
+        font-size: 16px;
+    }
+}
